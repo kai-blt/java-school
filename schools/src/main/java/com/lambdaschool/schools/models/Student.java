@@ -3,6 +3,7 @@ package com.lambdaschool.schools.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,8 +25,8 @@ public class Student
     /**
      * The name student (String)
      */
-    @Column(nullable = false,
-        unique = true)
+    @Column(nullable = false, unique = true)
+    @Size(min = 2, max = 30, message="Student name must be between 2 and 30 characters")
     private String name;
 
     /**
