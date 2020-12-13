@@ -49,6 +49,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorDetail,null, status);
     }
 
+    //Custom ResourceNotFound exception message
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException rnfe) {
         ErrorDetail errorDetail = new ErrorDetail();
