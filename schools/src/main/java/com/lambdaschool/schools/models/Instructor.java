@@ -1,8 +1,10 @@
 package com.lambdaschool.schools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,12 @@ public class Instructor
      * The Instructor's name (String)
      */
     @Column(nullable = false)
+    @Size(min = 2, max = 30, message="Instructor name must be between 2 and 30 characters")
     private String name;
+
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String advice;
 
     /**
      * List of courses associated with this instructor. Does not get saved in the database directly.
@@ -101,6 +108,7 @@ public class Instructor
      *
      * @return The list of courses this instructor is teaching
      */
+
     public List<Course> getCourses()
     {
         return courses;
@@ -114,5 +122,13 @@ public class Instructor
     public void setCourses(List<Course> courses)
     {
         this.courses = courses;
+    }
+
+    public String getAdvice() {
+        return advice;
+    }
+
+    public void setAdvice(String advice) {
+        this.advice = advice;
     }
 }
