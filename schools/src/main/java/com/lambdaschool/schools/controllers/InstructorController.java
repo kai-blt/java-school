@@ -93,6 +93,7 @@ public class InstructorController
 
         List<SlipSearch> advice = responseEntity.getBody().getSlips();
 
+        //If the list of advice is NULL throw a resource error!
         if (advice == null) {
             throw new ResourceNotFoundException("no message available");
         }
