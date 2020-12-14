@@ -1,5 +1,7 @@
 package com.lambdaschool.schools.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.List;
 
 public class SlipSearch {

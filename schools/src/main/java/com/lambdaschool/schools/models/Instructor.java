@@ -1,6 +1,7 @@
 package com.lambdaschool.schools.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -30,6 +31,7 @@ public class Instructor
     private String name;
 
     @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String advice;
 
     /**
@@ -106,6 +108,7 @@ public class Instructor
      *
      * @return The list of courses this instructor is teaching
      */
+
     public List<Course> getCourses()
     {
         return courses;
